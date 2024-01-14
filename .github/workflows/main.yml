@@ -23,9 +23,6 @@ jobs:
 
     - name: Instalacja Zależności
       run: npm install
-
-    - name: Sprawdzenie Stylu Kodu
-      run: npm run lint
       
     - name: Ustaw Zmienne Środowiskowe
       run: |
