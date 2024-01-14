@@ -13,6 +13,9 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v2
 
+    - name: Wyświetl Komunikat
+      run: echo "Workflow działa!"
+
     - name: Ustaw Node.js
       uses: actions/setup-node@v3
       with:
@@ -23,3 +26,13 @@ jobs:
 
     - name: Sprawdzenie Stylu Kodu
       run: npm run lint
+      
+    - name: Ustaw Zmienne Środowiskowe
+      run: |
+        echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+        echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
+
+    - name: Wyświetl Zmienne Środowiskowe
+      run: |
+        echo "API_KEY: $API_KEY"
+        echo "SECRET_KEY: $SECRET_KEY"
