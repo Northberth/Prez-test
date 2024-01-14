@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+     strategy:
+      matrix:
+        node-version: [12, 14, 16]
+
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
@@ -33,3 +37,13 @@ jobs:
       run: |
         echo "API_KEY: $API_KEY"
         echo "SECRET_KEY: $SECRET_KEY"
+    - name: Ustaw Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Instalacja Zależności
+      run: npm install
+
+    - name: Uruchom Testy
+      run: npm test
