@@ -1,5 +1,5 @@
-function HelloWorld(name) {
-  return `Hello, ${name}!`;
+function HelloWorld {
+  return `Hello, World!`;
 }
 
 const greeting = HelloWorld('World');
